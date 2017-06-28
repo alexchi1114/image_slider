@@ -89,6 +89,36 @@ body{
 	float:left;
 }
 
+#bubbles{
+	margin:0 auto;
+	width:100%;
+	height:100px;
+	text-align: center;
+	position:absolute;
+}
+
+.nav-bubble{
+	width:13px;
+	height:13px;
+	border:1px solid black;
+	margin-right:15px;
+	display: inline-block;
+	border-radius:15px;
+	background-color: #4CAF50;
+	opacity:.3;
+	
+}
+
+.nav-bubble:hover{
+	opacity:.9;
+}
+
+.filled-in{
+	opacity:.9;
+}
+
+
+
 .image img{
 	position: relative;
 	width:700px;
