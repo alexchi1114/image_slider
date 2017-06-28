@@ -2,11 +2,48 @@
 <html>
 <head>
 	<title>Image Slider</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 	<link rel = 'stylesheet' type = "text/css" href = 'styles/styles.css' />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type = 'text/javascript' src = 'scripts/main.js'></script>
 	<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
 </head>
 <body>
+	<div id = "navbar-top">
+		<h1>Image Slider</h1>
+	</div>
+	<br>
+	<div id = 'slider-container'>
+		<div id = "controls">
+			<div class = 'previous round' id = 'previous-button'>
+				&#8249;
+			</div>
+			<div class = 'next round' id = 'next-button'>
+				&#8250;
+			</div>
+		</div>
+		<div id = 'image-container'>	
+
+			<div class = 'image' id = 'image-0'>
+				<img src = 'images/pic1.jpeg' width = '700' height  = '300'>
+			</div>
+
+			<div class = 'image' id = 'image-1'>
+				<img src = 'images/pic2.jpg' width = '700' height  = '300'>
+			</div>
+
+			<div class = 'image' id = 'image-2'>
+				<img src = 'images/pic3.jpeg' width = '700' height  = '300'>
+			</div>
+
+			<div class = 'image' id = 'image-3'>
+				<img src = 'images/pic4.jpeg' width = '700' height  = '300'>
+			</div>
+
+			<div class = 'image' id = 'image-4'>
+				<img src = 'images/pic5.jpeg' width = '700' height  = '300'>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
