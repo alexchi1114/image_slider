@@ -3,6 +3,11 @@ var previousImage = 4;
 var currentImage = 0;
 var nextImage = 1;
 
+moveImages = setInterval(function(){
+	fillInBubbles();
+	slideNextImageLeft();
+
+}, 5000);
 
 
 var slideNextImageLeft = function(){
@@ -12,7 +17,7 @@ var slideNextImageLeft = function(){
 	currentImage = nextImage;
 	nextImage = ((nextImage)+1)%5;
 	previousImage = (nextImage+3)%5;
-	
+	fillInBubbles();
 };
 
 var slidePreviousImageRight = function(){
@@ -22,6 +27,7 @@ var slidePreviousImageRight = function(){
 	currentImage = previousImage;
 	nextImage = (currentImage+1)%5;
 	previousImage = (currentImage+4)%5;
+	fillInBubbles();
 };
 
 var createNavigation = function(){
@@ -36,9 +42,6 @@ var selectLocation = function(element){
 	var number = parseInt(id[id.length-1]);
 	nextImage = number;
 	slideNextImageLeft();
-	console.log(previousImage);
-	console.log(currentImage);
-	console.log(nextImage);
 	
 }
 
@@ -49,33 +52,40 @@ var fillInBubbles = function(){
 
 $(document).ready(function(){
 
-
 	createNavigation();
+	fillInBubbles();
 
 	$('#next-button').click(function(){
 		slideNextImageLeft();
-		fillInBubbles();
+		clearInterval(moveImages);
+		moveImages = setInterval(function(){
+			slideNextImageLeft();
+		}, 5000);
+		
 	});	
 
 	$('#previous-button').click(function(){
 		slidePreviousImageRight();
-		fillInBubbles();
+		clearInterval(moveImages);
+		moveImages = setInterval(function(){
+			slideNextImageLeft();
+		}, 5000);
+		
 	});
 
 	$('.nav-bubble').click(function(){
-		selectLocation($(this));
-		fillInBubbles();
+		var id = $(this).attr('id');
+		var number = parseInt(id[id.length-1]);
+		if(number!==currentImage){
+			selectLocation($(this));
+			fillInBubbles();
+			clearInterval(moveImages);
+			moveImages = setInterval(function(){
+				slideNextImageLeft();
+			}, 5000);
+		};
 	});
 });
 
-0 - 3
-
-1 - 4
-
-2 - 0
-
-3 -1
-
-4 - 2
 
 
