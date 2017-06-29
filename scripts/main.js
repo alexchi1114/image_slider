@@ -6,12 +6,13 @@ var nextImage = 1;
 
 
 var slideNextImageLeft = function(){
+	$('#image-'+nextImage).css({left:-700+(-700*(nextImage-2))});
 	$('#image-'+currentImage).animate({left:-700+(-700*(currentImage))},1000);
 	$('#image-'+nextImage).animate({left:-700+(-700*(nextImage-1))},1000);
 	currentImage = nextImage;
 	nextImage = ((nextImage)+1)%5;
 	previousImage = (nextImage+3)%5;
-	$('#image-'+nextImage).css({left:-700+(-700*(nextImage-2))});
+	
 };
 
 var slidePreviousImageRight = function(){
